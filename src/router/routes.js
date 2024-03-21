@@ -1,10 +1,17 @@
-
 const routes = [
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('pages/LoginPage.vue')
+  },
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
+      { path: '', name: 'index', component: () => import('pages/IndexPage.vue') },
+      { path: '/managed-list', name: 'managedList', component: () => import('src/pages/ManagedListPage.vue') },
+      { path: 'dashboard', name: 'dashboard', component: () => import('pages/DashboardPage.vue') }
+      // ... autres routes
     ]
   },
 
